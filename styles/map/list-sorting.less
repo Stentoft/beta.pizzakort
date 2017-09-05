@@ -1,0 +1,81 @@
+.list-sorting {
+  position: absolute;
+  bottom: 100%;
+  right: -2px;
+
+  display: inline-flex;
+  align-self: flex-start;
+  background: @content-background;
+  border:@content-border;
+
+  &-btn {
+    position: relative;
+    cursor: pointer;
+    background: @content-background;
+    padding: @content-padding @content-padding*2;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    margin: 0;
+
+    &:before,&:after {
+      position: absolute;
+      content: "";
+    }
+
+    &--active {
+      background: #caffcc;
+      @triangle-size: 5px;
+      @triangle-color: @blackish;
+
+      &:before {
+        // width: 60%;
+        bottom: 4px;
+        left: 50%;
+        transform: translate(-50%,0);
+        // border-bottom: @content-border;
+
+        width: 0;
+        height: 0;
+        border-left: @triangle-size solid transparent;
+        border-right: @triangle-size solid transparent;
+        border-top: @triangle-size solid @triangle-color;
+
+
+        .sorting-reversed& {
+          top: 4px;
+          // top: @content-padding/2;
+
+          border-top: none;
+          border-bottom: @triangle-size solid @triangle-color;
+        }
+      }
+
+      &:after {
+        bottom: 8px;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        border-bottom: @content-border;
+
+        .sorting-reversed& {
+          bottom: auto;
+          top: 8px;
+        }
+      }
+
+    }
+
+    &:first-child {
+      border-right: @content-border;
+
+      // &:after {
+      //   top: 50%;
+      //   right: 0;
+      //   height: 80%;
+      //   transform: translateY(-50%);
+      //   border-right: @content-border;
+      // }
+    }
+  }
+}

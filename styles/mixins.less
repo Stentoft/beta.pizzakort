@@ -1,0 +1,29 @@
+.bp--min(@bp; @rules) {
+    & when (@breakpoints > 0) and (length(@breakpoints-sizes) >= @breakpoints) {
+        & when (@bp > 0) and (length(@breakpoints-sizes) >= @bp) and (@breakpoints >= @bp) {
+            @media screen and (min-width: unit(extract(@breakpoints-sizes, @bp), px)) {
+                @rules();
+            }
+        }
+    }
+}
+
+.bp--max(@bp; @rules) {
+    & when (@breakpoints > 0) and (length(@breakpoints-sizes) >= @breakpoints) {
+        & when (@bp >= 0) and (@breakpoints > @bp) {
+            @media screen and (max-width: unit(extract(@breakpoints-sizes, (@bp + 1)), px)) {
+                @rules();
+            }
+        }
+    }
+}
+
+.button() {
+  cursor: pointer;
+  appearance: none;
+  background: @content-background;
+  padding: @content-padding;
+  border: @content-border;
+  outline: none;
+  margin: @content-padding 0;
+}

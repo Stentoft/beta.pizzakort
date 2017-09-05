@@ -1,0 +1,35 @@
+.item-details-map {
+
+  &-wrapper {
+    // width: 60%;
+  }
+
+  height: 0;
+  width: ~"calc(100% + 48px)";
+  padding-bottom: 70%;
+  margin: 0 -2*@content-padding;
+  background: rgba(0,0,0,.1);
+
+  .bp--min(3; {
+    width: ~"calc(100% + 72px)";
+    margin: 0 -3*@content-padding;
+  });
+}
+
+.item-info {
+  width: 100%;
+
+  &-text {
+    display: flex;
+    justify-content: space-between;
+
+    &-wrapper {
+      max-width: 80%;
+    }
+  }
+
+  .show-map-button {
+    align-self: flex-end;
+    .button();
+  }
+}
